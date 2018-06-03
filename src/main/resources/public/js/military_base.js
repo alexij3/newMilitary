@@ -238,8 +238,6 @@ app.controller("MilitaryBaseCtrl", function($scope, $http){
             console.log("Створення відбулося за " + time + " мс.");
             console.log(response);
         });
-
-        window.location.reload();
     };
 
         this.startUpdate = function startUpdate(id, name, armyId, divisionId, corpsId, brigadeId, captainId){
