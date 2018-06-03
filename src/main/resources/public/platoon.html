@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Взводи</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+
+
+</head>
+<body ng-app = "demo">
+Взводи
+<div class="container-fluid" ng-controller = "PlatoonCtrl as platoonCtrl">
+    <div class="datagrid">
+        <table>
+            <thead>
+            <tr>
+                <th>&#128273ІД</th>
+                <th>Номер</th>
+                <th>Назва</th>
+                <th>Рота</th>
+                <th width="30px"><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal" style="align-self:center">Створити</button></th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            <tr ng-repeat = "item in platoon">
+                <td>{{item.id}}</td>
+                <td>{{item.codeNumber}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.squadron.name}}</td>
+                <td>
+                    <button id="update" ng-click="platoonCtrl.startUpdatePlatoon(item.id, item.name, item.codeNumber, item.squadron.id)" class="btn-warning" data-toggle="modal" data-target="#editModal">Редагувати</button>
+                    <button id="delete" ng-click="platoonCtrl.deletePlatoon(item.id)" class="btn-danger">Видалити</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="btnWrapper"><a href="main.html" class="button">Головна сторінка</a></div>
+    <!-- Додавання армії -->
+    <div id="addModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Додавання</h4>
+                </div>
+                <div class="modal-body">
+                    <label>Кодовий номер:</label>
+                    <input type="text" id="platoonCode" name="platoonCode" /> <br>
+                    <label>Назва:</label>
+                    <input type="text" id="platoonName" name="platoonName" /><br>
+                    <label>Рота: </label>
+                    <select id="selectSquadron"></select> <br>
+
+                </div>
+                <div class="modal-footer">
+                    <button class = "btn btn-default" id="createPlatoonButton" ng-click="platoonCtrl.createPlatoon()">Створити</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Редагування армії -->
+    <div id="editModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Редагування</h4>
+                </div>
+                <div class="modal-body">
+                    <label>Кодовий номер:</label>
+                    <input type="text" id="updatePlatoonCode" name="updatePlatoonCode" /> <br>
+                    <label>Назва:</label>
+                    <input type="text" id="updatePlatoonName" name="updatePlatoonName" /><br>
+                    <label>Рота: </label>
+                    <select id="updateSelectSquadron"></select> <br>
+                </div>
+                <div class="modal-footer">
+                    <button id="editPlatoonButton" class="btn btn-default" ng-click="platoonCtrl.updatePlatoon()">Змінити</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/platoon.js"></script>
+
+
+
+
+</body>
+</html>

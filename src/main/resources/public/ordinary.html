@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Рядовий і сержантський склад</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+
+
+</head>
+<body ng-app = "demo">
+Рядовий і сержантський склад
+<div class="container-fluid" ng-controller = "OrdinaryCtrl as ordinaryCtrl">
+    <div id="dropdownWrapper">
+        <div class="dropdown">
+            <button class="dropbtn" style="margin-left: 0">Запити</button>
+            <div style="min-width: 700px;" class="dropdown-content">
+                <a href="" data-toggle="modal" data-target="#selectByRangGeneral">Дані по рядовому і сержантському складу вказаного рангу загалом</a>
+                <a href="" data-toggle="modal" data-target="#selectByRangAndMilitaryBase">Дані по рядовому і сержантському складу вказаного рангу за вказаною частиною</a>
+                <a href="" data-toggle="modal" data-target="#selectByRangAndDivision">Дані по рядовому і сержантському складу вказаного рангу за вказаною дивізією</a>
+                <a href="" data-toggle="modal" data-target="#selectByRangAndArmy">Дані по рядовому і сержантському складу вказаного рангу за вказаною армією</a>
+            </div>
+        </div>
+    </div>
+    <div class="datagrid">
+        <table>
+            <thead>
+            <tr>
+                <th>Солдат</th>
+                <th>Ранг</th>
+                <th>Військова частина</th>
+                <th width="30px"><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal"
+                                         ng-click="contestInPalaceCtrl.startCreateOrdinary()">Створити</button></th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            <tr ng-repeat = "item in ordinary">
+                <td>{{item.soldier.name}}</td>
+                <td>{{item.rang}}</td>
+                <td>{{item.soldier.militaryBaseName}}</td>
+                <td>
+                    <button id="update" ng-click="ordinaryCtrl.startUpdate(item.id, item.soldier.id, item.rang)" class="btn-warning" data-toggle="modal" data-target="#editModal">Редагувати</button>
+                    <button id="delete" ng-click="ordinaryCtrl.del(item.id)" class="btn-danger">Видалити</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="btnWrapper"><a href="main.html" class="button">Головна сторінка</a></div>
+    <!-- Додавання до рядового складу -->
+    <div id="addModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Додавання</h4>
+                </div>
+                <div class="modal-body">
+                    <label>Солдат: </label> <br>
+                    <select id="selectSoldier"></select> <br>
+                    <label>Ранг: </label> <br>
+                    <select id="selectRang">
+                        <option>Старшина</option>
+                        <option>Сержант</option>
+                        <option>Прапорщик</option>
+                        <option>Єфрейтор</option>
+                        <option>Рядовий</option>
+                    </select> <br>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="createOrdinary" ng-click="ordinaryCtrl.createOrdinary()">Створити</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Редагування рядового складу -->
+    <div id="editModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Редагування</h4>
+                </div>
+                <div class="modal-body">
+                    <label>Солдат: </label> <br>
+                    <select id="updSelectSoldier"></select> <br>
+                    <label>Ранг: </label> <br>
+                    <select id="updSelectRang">
+                        <option>Старшина</option>
+                        <option>Сержант</option>
+                        <option>Прапорщик</option>
+                        <option>Єфрейтор</option>
+                        <option>Рядовий</option>
+                    </select> <br>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" id="updateOrdinaryButton" ng-click="ordinaryCtrl.update()">Змінити</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="selectByRangGeneral" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Вибір рангу</h4>
+                </div>
+                <div class="modal-body">
+                    <select id="selectRangQuery" name="Ранг" title="Ранг">
+                        <option>Старшина</option>
+                        <option>Сержант</option>
+                        <option>Прапорщик</option>
+                        <option>Єфрейтор</option>
+                        <option>Рядовий</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" id="selectDivisionQueryBtn" ng-click="ordinaryCtrl.findByRang()" data-dismiss="modal">Вивести</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="selectByRangAndMilitaryBase" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Вибір рангу</h4>
+                </div>
+                <div class="modal-body">
+                    <select id="rangBaseQueryRang" name="Ранг" title="Ранг">
+                        <option>Старшина</option>
+                        <option>Сержант</option>
+                        <option>Прапорщик</option>
+                        <option>Єфрейтор</option>
+                        <option>Рядовий</option>
+                    </select><br>
+                    <select id="rangBaseQueryBase" name="Військова частина" title="Військова частина">
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" id="rangBaseQueryBtn" ng-click="ordinaryCtrl.findByRangAndMilitaryBaseId()" data-dismiss="modal">Вивести</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="selectByRangAndDivision" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Вибір рангу</h4>
+                </div>
+                <div class="modal-body">
+                    <select id="rangDivisionQueryRang" name="Ранг" title="Ранг">
+                        <option>Старшина</option>
+                        <option>Сержант</option>
+                        <option>Прапорщик</option>
+                        <option>Єфрейтор</option>
+                        <option>Рядовий</option>
+                    </select><br>
+                    <select id="rangDivisionQueryDivision" name="Дивізія" title="Дивізія">
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" id="rangDivisionBtn" ng-click="ordinaryCtrl.findAllByRangAndDivisionId()" data-dismiss="modal">Вивести</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="selectByRangAndArmy" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Вибір рангу</h4>
+                </div>
+                <div class="modal-body">
+                    <select id="rangArmyQueryRang" name="Ранг" title="Ранг">
+                        <option>Старшина</option>
+                        <option>Сержант</option>
+                        <option>Прапорщик</option>
+                        <option>Єфрейтор</option>
+                        <option>Рядовий</option>
+                    </select><br>
+                    <select id="rangArmyQueryArmy" name="Армія" title="Армія">
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" id="rangArmyBtn" ng-click="ordinaryCtrl.findAllByRangAndArmyId()" data-dismiss="modal">Вивести</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/ordinary.js"></script>
+
+</body>
+</html>

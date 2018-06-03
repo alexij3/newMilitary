@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Транспорт</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+
+</head>
+<body ng-app = "demo">
+Транспорт
+<div class="container-fluid" ng-controller = "TransportCtrl as transportCtrl">
+    <div class="datagrid">
+        <table>
+            <thead>
+            <tr>
+                <th>Назва</th>
+                <th>Місткість</th>
+                <th>Бойові місця</th>
+                <th>Тип</th>
+                <th width="30px"><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal" style="align-self:center">Створити</button></th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            <tr ng-repeat = "item in transport">
+                <td>{{item.name}}</td>
+                <td>{{item.capacity}}</td>
+                <td>{{item.fightingSeats}}</td>
+                <td>{{item.transportType}}</td>
+                <td>
+                    <button id="update" ng-click="transportCtrl.startUpdate(item.id, item.name, item.capacity, item.fightingSeats, item.transportType)" class="btn-warning" data-toggle="modal" data-target="#editModal">Редагувати</button>
+                    <button id="delete" ng-click="transportCtrl.del(item.id)" class="btn-danger">Видалити</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="btnWrapper"><a href="main.html" class="button">Головна сторінка</a></div>
+    <!-- Додавання транспорту -->
+    <div id="addModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Додавання</h4>
+                </div>
+                <div class="modal-body">
+                    <label>Назва:
+                        <input type="text" id="transportName"/> </label><br>
+                    <label>Місткість:
+                        <input type="number" min="1" id="transportCapacity"/></label> <br>
+                    <label>Бойові місця:
+                        <input type="number" min="0" id="fightingSeats"/></label> <br>
+                    <label>Тип:
+                        <select id="transportType">
+                            <option>БМП</option>
+                            <option>Тягач</option>
+                            <option>Автотранспорт</option>
+                        </select></label>
+                </div>
+                <div class="modal-footer">
+                    <button class = "btn btn-default" id="createTransportButton" ng-click="transportCtrl.createTransport()">Створити</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Редагування транспорту -->
+    <div id="editModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Редагування</h4>
+                </div>
+                <div class="modal-body">
+                    <label>Назва:
+                        <input type="text" id="updateTransportName"/> </label><br>
+                    <label>Місткість:
+                        <input type="number" min="1" id="updateTransportCapacity"/></label> <br>
+                    <label>Бойові місця:
+                        <input type="number" min="0" id="updateTransportFightingSeats"/></label> <br>
+                    <label>Тип:
+                        <select id="updateTransportType">
+                            <option>БМП</option>
+                            <option>Тягач</option>
+                            <option>Автотранспорт</option>
+                        </select></label>
+                </div>
+                <div class="modal-footer">
+                    <button class = "btn btn-default" id="updateTransportButton" ng-click="transportCtrl.update()">Змінити</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/transport.js"></script>
+
+
+
+
+</body>
+</html>
