@@ -8,34 +8,40 @@
 
 </head>
 <body ng-app = "demo">
-Озброєння
-<div class="container-fluid" ng-controller = "WeaponryCtrl as weaponryCtrl">
-    <div class="datagrid">
-        <table>
-            <thead>
-            <tr>
-                <th>Назва</th>
-                <th>Калібр</th>
-                <th>Глушник</th>
-                <th>Тип</th>
-                <th width="30px"><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal" style="align-self:center">Створити</button></th>
-            </tr>
-            </thead>
+<div class="container" ng-controller = "WeaponryCtrl as weaponryCtrl">
+    <div class="row">
+        <div class="col-md12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Озброєння</div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Назва</th>
+                            <th>Калібр</th>
+                            <th>Глушник</th>
+                            <th>Тип</th>
+                            <th width="30px"><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal" style="align-self:center">Створити</button></th>
+                        </tr>
+                        </thead>
 
-            <tbody>
+                        <tbody>
 
-            <tr ng-repeat = "item in weaponry">
-                <td>{{item.name}}</td>
-                <td>{{item.caliber}}</td>
-                <td>{{item.silencer == 'y' ? 'Присутній' : 'Відсутній'}}</td>
-                <td>{{item.weaponryType}}</td>
-                <td>
-                    <button id="update" ng-click="weaponryCtrl.startUpdate(item.id, item.name, item.caliber, item.silencer, item.weaponryType)" class="btn-warning" data-toggle="modal" data-target="#editModal">Редагувати</button>
-                    <button id="delete" ng-click="weaponryCtrl.del(item.id)" class="btn-danger">Видалити</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+                        <tr ng-repeat = "item in weaponry">
+                            <td>{{item.name}}</td>
+                            <td>{{item.caliber}}</td>
+                            <td>{{item.silencer == 'y' ? 'Присутній' : 'Відсутній'}}</td>
+                            <td>{{item.weaponryType}}</td>
+                            <td>
+                                <button id="update" ng-click="weaponryCtrl.startUpdate(item.id, item.name, item.caliber, item.silencer, item.weaponryType)" class="btn-warning" data-toggle="modal" data-target="#editModal">Редагувати</button>
+                                <button id="delete" ng-click="weaponryCtrl.del(item.id)" class="btn-danger">Видалити</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="btnWrapper"><a href="main.html" class="button">Головна сторінка</a></div>

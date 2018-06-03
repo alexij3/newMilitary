@@ -10,34 +10,40 @@
 
 </head>
 <body ng-app = "demo">
-Відділення
-<div class="container-fluid" ng-controller = "DepartmentCtrl as departmentCtrl">
-    <div class="datagrid">
-        <table>
-            <thead>
-            <tr>
-                <th>Номер</th>
-                <th>Назва</th>
-                <th>Взвод</th>
-                <th>Капітан</th>
-                <th width="30px"><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal" style="align-self:center">Створити</button></th>
-            </tr>
-            </thead>
+<div class="container" ng-controller = "DepartmentCtrl as departmentCtrl">
+    <div class="row">
+        <div class="col-md12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Відділення</div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Номер</th>
+                            <th>Назва</th>
+                            <th>Взвод</th>
+                            <th>Капітан</th>
+                            <th width="30px"><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal" style="align-self:center">Створити</button></th>
+                        </tr>
+                        </thead>
 
-            <tbody>
+                        <tbody>
 
-            <tr ng-repeat = "item in departments">
-                <td>{{item.codeNumber}}</td>
-                <td>{{item.name}}</td>
-                <td>{{item.platoon.name}}</td>
-                <td>{{item.captain.name}}</td>
-                <td>
-                    <button id="update" ng-click="departmentCtrl.startUpdate(item.id, item.name, item.codeNumber, item.platoon.id, item.captain.id)" class="btn-warning" data-toggle="modal" data-target="#editModal">Редагувати</button>
-                    <button id="delete" ng-click="departmentCtrl.del(item.id)" class="btn-danger">Видалити</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+                        <tr ng-repeat = "item in departments">
+                            <td>{{item.codeNumber}}</td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.platoon.name}}</td>
+                            <td>{{item.captain.name}}</td>
+                            <td>
+                                <button id="update" ng-click="departmentCtrl.startUpdate(item.id, item.name, item.codeNumber, item.platoon.id, item.captain.id)" class="btn-warning" data-toggle="modal" data-target="#editModal">Редагувати</button>
+                                <button id="delete" ng-click="departmentCtrl.del(item.id)" class="btn-danger">Видалити</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="btnWrapper"><a href="main.html" class="button">Головна сторінка</a></div>

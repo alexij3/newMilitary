@@ -10,8 +10,7 @@
 
 </head>
 <body ng-app = "demo">
-Корпуси
-<div class="container-fluid" ng-controller = "CorpsCtrl as corpsCtrl">
+<div class="container" ng-controller = "CorpsCtrl as corpsCtrl">
     <div id="dropdownWrapper">
         <div class="dropdown">
             <button class="dropbtn" style="margin-left: 0">Запити</button>
@@ -21,30 +20,36 @@
             </div>
         </div>
     </div>
-    <div class="datagrid">
-        <table>
-            <thead>
-            <tr>
-                <th>&#128273ІД</th>
-                <th>Номер</th>
-                <th>Назва</th>
-                <th width="30px"><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal" style="align-self:center">Створити</button></th>
-            </tr>
-            </thead>
+    <div class="row">
+        <div class="col-md12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Корпуси</div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <tr>
+                            <th>&#128273ІД</th>
+                            <th>Номер</th>
+                            <th>Назва</th>
+                            <th width="30px"><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal" style="align-self:center">Створити</button></th>
+                        </tr>
+                        </thead>
 
-            <tbody>
+                        <tbody>
 
-            <tr ng-repeat = "item in corps">
-                <td>{{item.id}}</td>
-                <td>{{item.codeNumber}}</td>
-                <td>{{item.name}}</td>
-                <td>
-                    <button id="update" ng-click="corpsCtrl.startUpdateCorps(item.id, item.name, item.codeNumber)" class="btn-warning" data-toggle="modal" data-target="#editModal">Редагувати</button>
-                    <button id="delete" ng-click="corpsCtrl.deleteCorps(item.id)" class="btn-danger">Видалити</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+                        <tr ng-repeat = "item in corps">
+                            <td>{{item.id}}</td>
+                            <td>{{item.codeNumber}}</td>
+                            <td>{{item.name}}</td>
+                            <td>
+                                <button id="update" ng-click="corpsCtrl.startUpdateCorps(item.id, item.name, item.codeNumber)" class="btn-warning" data-toggle="modal" data-target="#editModal">Редагувати</button>
+                                <button id="delete" ng-click="corpsCtrl.deleteCorps(item.id)" class="btn-danger">Видалити</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="btnWrapper"><a href="main.html" class="button">Головна сторінка</a></div>

@@ -8,34 +8,40 @@
 
 </head>
 <body ng-app = "demo">
-Солдати
 <div class="container" style="margin-top: 30px" ng-controller = "SoldierCtrl as soldierCtrl">
-    <div class="datagrid">
-        <table>
-            <thead>
-            <tr>
-                <th>&#128273ІД</th>
-                <th>Ім'я</th>
-                <th>Вік</th>
-                <!--<th>Військова частина</th> -->
-                <th width="30px"><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal" style="align-self:center">Створити</button></th>
-            </tr>
-            </thead>
+    <div class="row">
+        <div class="col-md12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Солдати</div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>&#128273ІД</th>
+                            <th>Ім'я</th>
+                            <th>Вік</th>
+                            <!--<th>Військова частина</th> -->
+                            <th width="30px"><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal" style="align-self:center">Створити</button></th>
+                        </tr>
+                        </thead>
 
-            <tbody>
+                        <tbody>
 
-            <tr ng-repeat = "item in soldier">
-                <td>{{item.id}}</td>
-                <td>{{item.name}}</td>
-                <td>{{item.age}}</td>
-                <!--<td>{{item.militaryBase.name}}</td>-->
-                <td>
-                    <button id="update" ng-click="soldierCtrl.startUpdateSoldier(item.id, item.name, item.age, item.militaryBase.id, item.specialty)" class="btn-warning" data-toggle="modal" data-target="#editModal">Редагувати</button>
-                    <button id="delete" ng-click="soldierCtrl.deleteSoldier(item.id)" class="btn-danger">Видалити</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+                        <tr ng-repeat = "item in soldier">
+                            <td>{{item.id}}</td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.age}}</td>
+                            <!--<td>{{item.militaryBase.name}}</td>-->
+                            <td>
+                                <button id="update" ng-click="soldierCtrl.startUpdateSoldier(item.id, item.name, item.age, item.militaryBase.id, item.specialty)" class="btn-warning" data-toggle="modal" data-target="#editModal">Редагувати</button>
+                                <button id="delete" ng-click="soldierCtrl.deleteSoldier(item.id)" class="btn-danger">Видалити</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="btnWrapper"><a href="main.html" class="button">Головна сторінка</a></div>

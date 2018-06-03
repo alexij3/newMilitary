@@ -191,39 +191,9 @@ app.controller("MilitaryBaseCtrl", function($scope, $http){
         }
     });
 
-    $http.get('/api/buildings/showall').then(function(response) {
-        console.log(response);
-        var buildings = response.data;
-        var select = document.getElementById('selectDislocation');
-        var selectBuildingsUpd = document.getElementById('updSelectDislocation');
-
-        for (var i = 0; i < buildings.length; i++) {
-            var option = document.createElement("option");
-            option.text = buildings[i].name;
-            option.value = buildings[i].id;
-
-            select.add(option);
-
-            console.log(select);
-        }
-
-        for (var j = 0; j < buildings.length; j++){
-            var option2 = document.createElement("option");
-            option2.text = buildings[j].name;
-            option2.value = buildings[j].id;
-
-            selectBuildingsUpd.add(option2);
-            console.log(selectBuildingsUpd);
-        }
-    });
-
-
-
     this.createMilitaryBase = function createMilitaryBase(){
         var name = document.getElementById('militaryBaseName').value;
         var armyId = document.getElementById('selectArmy').value;
-        var dislocationId = document.getElementById('selectDislocation').value;
-
         var divisionId;
         var corpsId;
         var brigadeId;
@@ -256,7 +226,7 @@ app.controller("MilitaryBaseCtrl", function($scope, $http){
         var request = {
             method: 'PUT',
             url: '/api/militarybase/create?armyId=' + armyId + '&divisionId=' + divisionId + '&corpsId=' + corpsId
-                                                    + '&brigadeId=' + brigadeId + '&captainId=' + captainId + '&dislocationId=' + dislocationId,
+                                                    + '&brigadeId=' + brigadeId + '&captainId=' + captainId,
             data : {
                 name : name
             }
@@ -272,14 +242,13 @@ app.controller("MilitaryBaseCtrl", function($scope, $http){
         window.location.reload();
     };
 
-        this.startUpdate = function startUpdate(id, name, armyId, divisionId, corpsId, brigadeId, dislocationId, captainId){
+        this.startUpdate = function startUpdate(id, name, armyId, divisionId, corpsId, brigadeId, captainId){
             idToUpdate = id;
             document.getElementById('updMilitaryBaseName').value = name;
             document.getElementById('updSelectArmy').value = armyId;
             document.getElementById('updSelectDivision').value = divisionId;
             document.getElementById('updSelectCorps').value = corpsId;
             document.getElementById('updSelectBrigade').value = brigadeId;
-            document.getElementById('updSelectDislocation').value = dislocationId;
             document.getElementById('updSelectCaptain').value = captainId;
 
         };
@@ -287,7 +256,6 @@ app.controller("MilitaryBaseCtrl", function($scope, $http){
         this.update = function update(){
             var name = document.getElementById('updMilitaryBaseName').value;
             var armyId = document.getElementById('updSelectArmy').value;
-            var dislocationId = document.getElementById('updSelectDislocation').value;
 
             var divisionId;
             var corpsId;
@@ -317,7 +285,7 @@ app.controller("MilitaryBaseCtrl", function($scope, $http){
             var request = {
                 method: 'POST',
                 url: '/api/militarybase/update?id=' + idToUpdate + '&armyId=' + armyId + '&divisionId=' + divisionId + '&corpsId=' + corpsId
-                + '&brigadeId=' + brigadeId + '&captainId=' + captainId + '&dislocationId=' + dislocationId,
+                + '&brigadeId=' + brigadeId + '&captainId=' + captainId,
                 data : {
                     name : name
                 }

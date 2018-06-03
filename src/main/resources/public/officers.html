@@ -10,8 +10,7 @@
 
 </head>
 <body ng-app = "demo">
-Офіцерський склад
-<div class="container-fluid" ng-controller = "OfficersCtrl as officersCtrl">
+<div class="container" ng-controller = "OfficersCtrl as officersCtrl">
     <div id="dropdownWrapper">
         <div class="dropdown">
             <button class="dropbtn" style="margin-left: 0">Запити</button>
@@ -23,35 +22,42 @@
             </div>
         </div>
     </div>
-    <div class="datagrid">
-        <table>
-            <thead>
-            <tr>
-                <th>Солдат</th>
-                <th>Ранг</th>
-                <th>Дата закінчення академії</th>
-                <th>Дата отримання генеральского звання</th>
-                <th>Військова частина</th>
-                <th width="30px"><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal"
-                                         ng-click="contestInPalaceCtrl.startCreateOfficers()">Створити</button></th>
-            </tr>
-            </thead>
+    <div class="row">
+        <div class="col-md12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Офіцерський склад</div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Солдат</th>
+                            <th>Ранг</th>
+                            <th>Дата закінчення академії</th>
+                            <th>Дата отримання генеральского звання</th>
+                            <th>Військова частина</th>
+                            <th width="30px"><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal"
+                                                     ng-click="contestInPalaceCtrl.startCreateOfficers()">Створити</button></th>
+                        </tr>
+                        </thead>
 
-            <tbody>
+                        <tbody>
 
-            <tr ng-repeat = "item in officers">
-                <td>{{item.soldier.name}}</td>
-                <td>{{item.rang}}</td>
-                <td>{{item.academyGraduation}}</td>
-                <td>{{item.becameGeneral}}</td>
-                <td>{{item.soldier.militaryBaseName}}</td>
-                <td>
-                    <button id="update" ng-click="officersCtrl.startUpdate(item.id, item.soldier.name, item.soldier.age, item.soldier.id, item.rang, item.academyGraduation, item.becameGeneral, item.soldier.militaryBaseId)" class="btn-warning" data-toggle="modal" data-target="#editModal">Редагувати</button>
-                    <button id="delete" ng-click="officersCtrl.del(item.id)" class="btn-danger">Видалити</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+                        <tr ng-repeat = "item in officers">
+                            <td>{{item.soldier.name}}</td>
+                            <td>{{item.rang}}</td>
+                            <td>{{item.academyGraduation}}</td>
+                            <td>{{item.becameGeneral}}</td>
+                            <td>{{item.soldier.militaryBaseName}}</td>
+                            <td>
+                                <button id="update" ng-click="officersCtrl.startUpdate(item.id, item.soldier.name, item.soldier.age, item.soldier.id, item.rang, item.academyGraduation, item.becameGeneral, item.soldier.militaryBaseId)" class="btn-warning" data-toggle="modal" data-target="#editModal">Редагувати</button>
+                                <button id="delete" ng-click="officersCtrl.del(item.id)" class="btn-danger">Видалити</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="btnWrapper"><a href="main.html" class="button">Головна сторінка</a></div>

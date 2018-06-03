@@ -9,34 +9,40 @@
 
 </head>
 <body ng-app = "demo">
-Транспорт
-<div class="container-fluid" ng-controller = "TransportCtrl as transportCtrl">
-    <div class="datagrid">
-        <table>
-            <thead>
-            <tr>
-                <th>Назва</th>
-                <th>Місткість</th>
-                <th>Бойові місця</th>
-                <th>Тип</th>
-                <th width="30px"><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal" style="align-self:center">Створити</button></th>
-            </tr>
-            </thead>
+<div class="container" ng-controller = "TransportCtrl as transportCtrl">
+    <div class="row">
+        <div class="col-md12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Транспорт</div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Назва</th>
+                            <th>Місткість</th>
+                            <th>Бойові місця</th>
+                            <th>Тип</th>
+                            <th width="30px"><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal" style="align-self:center">Створити</button></th>
+                        </tr>
+                        </thead>
 
-            <tbody>
+                        <tbody>
 
-            <tr ng-repeat = "item in transport">
-                <td>{{item.name}}</td>
-                <td>{{item.capacity}}</td>
-                <td>{{item.fightingSeats}}</td>
-                <td>{{item.transportType}}</td>
-                <td>
-                    <button id="update" ng-click="transportCtrl.startUpdate(item.id, item.name, item.capacity, item.fightingSeats, item.transportType)" class="btn-warning" data-toggle="modal" data-target="#editModal">Редагувати</button>
-                    <button id="delete" ng-click="transportCtrl.del(item.id)" class="btn-danger">Видалити</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+                        <tr ng-repeat = "item in transport">
+                            <td>{{item.name}}</td>
+                            <td>{{item.capacity}}</td>
+                            <td>{{item.fightingSeats}}</td>
+                            <td>{{item.transportType}}</td>
+                            <td>
+                                <button id="update" ng-click="transportCtrl.startUpdate(item.id, item.name, item.capacity, item.fightingSeats, item.transportType)" class="btn-warning" data-toggle="modal" data-target="#editModal">Редагувати</button>
+                                <button id="delete" ng-click="transportCtrl.del(item.id)" class="btn-danger">Видалити</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="btnWrapper"><a href="main.html" class="button">Головна сторінка</a></div>

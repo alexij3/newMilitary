@@ -10,8 +10,7 @@
 
 </head>
 <body ng-app = "demo">
-Рядовий і сержантський склад
-<div class="container-fluid" ng-controller = "OrdinaryCtrl as ordinaryCtrl">
+<div class="container" ng-controller = "OrdinaryCtrl as ordinaryCtrl">
     <div id="dropdownWrapper">
         <div class="dropdown">
             <button class="dropbtn" style="margin-left: 0">Запити</button>
@@ -23,31 +22,38 @@
             </div>
         </div>
     </div>
-    <div class="datagrid">
-        <table>
-            <thead>
-            <tr>
-                <th>Солдат</th>
-                <th>Ранг</th>
-                <th>Військова частина</th>
-                <th width="30px"><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal"
-                                         ng-click="contestInPalaceCtrl.startCreateOrdinary()">Створити</button></th>
-            </tr>
-            </thead>
+    <div class="row">
+        <div class="col-md12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Рядовий і сержантський склад</div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Солдат</th>
+                            <th>Ранг</th>
+                            <th>Військова частина</th>
+                            <th width="30px"><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal"
+                                                     ng-click="contestInPalaceCtrl.startCreateOrdinary()">Створити</button></th>
+                        </tr>
+                        </thead>
 
-            <tbody>
+                        <tbody>
 
-            <tr ng-repeat = "item in ordinary">
-                <td>{{item.soldier.name}}</td>
-                <td>{{item.rang}}</td>
-                <td>{{item.soldier.militaryBaseName}}</td>
-                <td>
-                    <button id="update" ng-click="ordinaryCtrl.startUpdate(item.id, item.soldier.id, item.rang)" class="btn-warning" data-toggle="modal" data-target="#editModal">Редагувати</button>
-                    <button id="delete" ng-click="ordinaryCtrl.del(item.id)" class="btn-danger">Видалити</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+                        <tr ng-repeat = "item in ordinary">
+                            <td>{{item.soldier.name}}</td>
+                            <td>{{item.rang}}</td>
+                            <td>{{item.soldier.militaryBaseName}}</td>
+                            <td>
+                                <button id="update" ng-click="ordinaryCtrl.startUpdate(item.id, item.soldier.id, item.rang)" class="btn-warning" data-toggle="modal" data-target="#editModal">Редагувати</button>
+                                <button id="delete" ng-click="ordinaryCtrl.del(item.id)" class="btn-danger">Видалити</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="btnWrapper"><a href="main.html" class="button">Головна сторінка</a></div>

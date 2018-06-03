@@ -10,34 +10,40 @@
 
 </head>
 <body ng-app = "demo">
-Взводи
-<div class="container-fluid" ng-controller = "PlatoonCtrl as platoonCtrl">
-    <div class="datagrid">
-        <table>
-            <thead>
-            <tr>
-                <th>&#128273ІД</th>
-                <th>Номер</th>
-                <th>Назва</th>
-                <th>Рота</th>
-                <th width="30px"><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal" style="align-self:center">Створити</button></th>
-            </tr>
-            </thead>
+<div class="container" ng-controller = "PlatoonCtrl as platoonCtrl">
+    <div class="row">
+        <div class="col-md12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Взводи</div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>&#128273ІД</th>
+                            <th>Номер</th>
+                            <th>Назва</th>
+                            <th>Рота</th>
+                            <th width="30px"><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal" style="align-self:center">Створити</button></th>
+                        </tr>
+                        </thead>
 
-            <tbody>
+                        <tbody>
 
-            <tr ng-repeat = "item in platoon">
-                <td>{{item.id}}</td>
-                <td>{{item.codeNumber}}</td>
-                <td>{{item.name}}</td>
-                <td>{{item.squadron.name}}</td>
-                <td>
-                    <button id="update" ng-click="platoonCtrl.startUpdatePlatoon(item.id, item.name, item.codeNumber, item.squadron.id)" class="btn-warning" data-toggle="modal" data-target="#editModal">Редагувати</button>
-                    <button id="delete" ng-click="platoonCtrl.deletePlatoon(item.id)" class="btn-danger">Видалити</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+                        <tr ng-repeat = "item in platoon">
+                            <td>{{item.id}}</td>
+                            <td>{{item.codeNumber}}</td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.squadron.name}}</td>
+                            <td>
+                                <button id="update" ng-click="platoonCtrl.startUpdatePlatoon(item.id, item.name, item.codeNumber, item.squadron.id)" class="btn-warning" data-toggle="modal" data-target="#editModal">Редагувати</button>
+                                <button id="delete" ng-click="platoonCtrl.deletePlatoon(item.id)" class="btn-danger">Видалити</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="btnWrapper"><a href="main.html" class="button">Головна сторінка</a></div>

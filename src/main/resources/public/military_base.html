@@ -10,7 +10,6 @@
 
 </head>
 <body ng-app = "demo">
-Військові частини
 <div class="container-fluid" ng-controller = "MilitaryBaseCtrl as militaryBaseCtrl">
     <div id="dropdownWrapper">
     <div class="dropdown">
@@ -23,38 +22,43 @@
         </div>
     </div>
     </div>
-    <div class="datagrid">
-        <table>
-            <thead>
-            <tr>
-                <th>Назва</th>
-                <th>Армія</th>
-                <th>Дивізія</th>
-                <th>Корпус</th>
-                <th>Бригада</th>
-                <th>Дизлокація</th>
-                <th>Капітан</th>
-                <th width="30px"><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal" style="align-self:center">Створити</button></th>
-            </tr>
-            </thead>
+    <div class="row">
+        <div class="col-md12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Військові частини</div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Назва</th>
+                            <th>Армія</th>
+                            <th>Дивізія</th>
+                            <th>Корпус</th>
+                            <th>Бригада</th>
+                            <th>Капітан</th>
+                            <th width="30px"><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal" style="align-self:center">Створити</button></th>
+                        </tr>
+                        </thead>
 
-            <tbody>
+                        <tbody>
 
-            <tr ng-repeat = "item in militaryBase">
-                <td>{{item.name}}</td>
-                <td>{{item.army.name}}</td>
-                <td>{{item.division.name}}</td>
-                <td>{{item.corps.name}}</td>
-                <td>{{item.brigade.name}}</td>
-                <td>{{item.dislocation.name}}</td>
-                <td>{{item.captain.name}}</td>
-                <td>
-                    <button id="update" ng-click="militaryBaseCtrl.startUpdate(item.id, item.name, item.army.id, item.division.id, item.corps.id, item.brigade.id, item.dislocation.id, item.captain.id)" class="btn-warning" data-toggle="modal" data-target="#editModal">Редагувати</button>
-                    <button id="delete" ng-click="militaryBaseCtrl.del(item.id)" class="btn-danger">Видалити</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+                        <tr ng-repeat = "item in militaryBase">
+                            <td>{{item.name}}</td>
+                            <td>{{item.army.name}}</td>
+                            <td>{{item.division.name}}</td>
+                            <td>{{item.corps.name}}</td>
+                            <td>{{item.brigade.name}}</td>
+                            <td>{{item.captain.name}}</td>
+                            <td>
+                                <button id="update" ng-click="militaryBaseCtrl.startUpdate(item.id, item.name, item.army.id, item.division.id, item.corps.id, item.brigade.id, item.dislocation.id, item.captain.id)" class="btn-warning" data-toggle="modal" data-target="#editModal">Редагувати</button>
+                                <button id="delete" ng-click="militaryBaseCtrl.del(item.id)" class="btn-danger">Видалити</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="btnWrapper"><a href="main.html" class="button">Головна сторінка</a></div>
@@ -81,9 +85,6 @@
                         <select id="selectDivision"></select>&nbsp <input type="radio" name="unit" id="radioDivision"><br>
                         <select id="selectCorps"></select>&nbsp <input type="radio" name="unit" id="radioCorps"><br>
                         <select id="selectBrigade"></select>&nbsp <input type="radio" name="unit" id="radioBrigade"><br>
-                    </label><br>
-                    <label>Місце дизлокації:
-                        <select id="selectDislocation"></select>
                     </label><br>
                     <label>Капітан:
                     <select id="selectCaptain" ></select></label><br>
@@ -114,9 +115,6 @@
                         <select id="updSelectDivision"></select>&nbsp <input type="radio" name="updUnit" id="updRadioDivision"><br>
                         <select id="updSelectCorps"></select>&nbsp <input type="radio" name="updUnit" id="updRadioCorps"><br>
                         <select id="updSelectBrigade"></select>&nbsp <input type="radio" name="updUnit" id="updRadioBrigade"><br>
-                    </label><br>
-                    <label>Місце дизлокації:
-                        <select id="updSelectDislocation"></select>
                     </label><br>
                     <label>Капітан:
                         <select id="updSelectCaptain" ></select></label><br>

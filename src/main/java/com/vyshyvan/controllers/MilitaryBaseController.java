@@ -28,10 +28,9 @@ public class MilitaryBaseController {
     }
 
     @RequestMapping("/create")
-    public MilitaryBase create(long armyId, int divisionId, int corpsId, int brigadeId, int captainId, int dislocationId,
+    public MilitaryBase create(long armyId, int divisionId, int corpsId, int brigadeId, int captainId,
                                @RequestBody MilitaryBase militaryBaseInput){
         Army army = new Army();
-        Buildings buildings = new Buildings();
         Division division;
         Corps corps;
         Brigade brigade;
@@ -40,7 +39,6 @@ public class MilitaryBaseController {
         MilitaryBase militaryBase = new MilitaryBase();
 
         army.setId(armyId);
-        buildings.setId(dislocationId);
 
         if (divisionId != 0){
             division = new Division();
@@ -69,10 +67,9 @@ public class MilitaryBaseController {
     }
 
     @RequestMapping("/update")
-    public MilitaryBase update(int id, long armyId, int divisionId, int corpsId, int brigadeId, int captainId, int dislocationId,
+    public MilitaryBase update(int id, long armyId, int divisionId, int corpsId, int brigadeId, int captainId,
                                @RequestBody MilitaryBase militaryBaseInput){
         Army army = new Army();
-        Buildings buildings = new Buildings();
         Division division;
         Corps corps;
         Brigade brigade;
@@ -82,7 +79,6 @@ public class MilitaryBaseController {
         militaryBase.setId(id);
 
         army.setId(armyId);
-        buildings.setId(dislocationId);
 
         if (divisionId != 0){
             division = new Division();
