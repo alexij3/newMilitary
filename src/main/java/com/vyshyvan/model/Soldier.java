@@ -19,7 +19,7 @@ public class Soldier {
     private int age;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "military_base_id", nullable = false)
+    @JoinColumn(name = "military_base_id", nullable = true)
     @JsonIgnore
     private MilitaryBase militaryBase;
 
