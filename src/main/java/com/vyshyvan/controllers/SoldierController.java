@@ -28,9 +28,13 @@ public class SoldierController {
 
     @RequestMapping("/create")
     public Soldier create(@RequestParam("mbaseId") int mbaseId, @RequestBody Soldier soldier) {
-        MilitaryBase militaryBase = new MilitaryBase();
-        militaryBase.setId(mbaseId);
-        soldier.setMilitaryBase(militaryBase);
+
+        if (mbaseId!= 0){
+            MilitaryBase militaryBase = new MilitaryBase();
+            militaryBase.setId(mbaseId);
+            soldier.setMilitaryBase(militaryBase);
+        }
+
         return soldierService.insertSoldier(soldier);
     }
 
@@ -38,11 +42,14 @@ public class SoldierController {
     public Soldier updateSoldier(@RequestParam("id") Integer id,
                                  @RequestParam("mbaseId") int mbaseId,
                                  @RequestBody Soldier soldier) {
-        MilitaryBase militaryBase = new MilitaryBase();
-        militaryBase.setId(mbaseId);
+        if (mbaseId!= 0){
+            MilitaryBase militaryBase = new MilitaryBase();
+            militaryBase.setId(mbaseId);
+            soldier.setMilitaryBase(militaryBase);
+        }
+
 
         soldier.setId(id);
-        soldier.setMilitaryBase(militaryBase);
         soldier.setSpecialty(soldier.getSpecialty());
 
         return soldierService.updateSoldier(soldier);

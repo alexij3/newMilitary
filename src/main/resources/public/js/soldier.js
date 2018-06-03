@@ -50,6 +50,8 @@ app.controller("SoldierCtrl", function($scope, $http){
         var age = document.getElementById('soldierAge').value;
         var militaryBaseId = document.getElementById('selectMilitaryBases').value;
 
+        if (militaryBaseId == "") militaryBaseId = 0;
+
         var createRequest = {
             method: 'PUT',
             url: '/api/soldier/create?mbaseId=' + militaryBaseId,
@@ -80,6 +82,9 @@ app.controller("SoldierCtrl", function($scope, $http){
         var name = document.getElementById('updateSoldierName').value;
         var age = document.getElementById('updateSoldierAge').value;
         var militaryBaseId = document.getElementById('updateMilitaryBase').value;
+
+        if (militaryBaseId == "") militaryBaseId = 0;
+
 
         var request = {
             method: 'POST',
