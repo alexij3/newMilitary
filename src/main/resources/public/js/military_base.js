@@ -300,8 +300,9 @@ app.controller("MilitaryBaseCtrl", function($scope, $http){
         };
 
         this.del = function del(id){
-            $http.post('/api/militarybase/delete?id=' + id);
-            window.location.reload();
+            $http.post('/api/militarybase/delete?id=' + id).then(function(){
+                window.location.reload();
+            });
         };
 
         /**********

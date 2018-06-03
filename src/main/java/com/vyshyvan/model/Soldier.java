@@ -24,6 +24,18 @@ public class Soldier {
     private MilitaryBase militaryBase;
 
     @Transient
+    @OneToOne(cascade = CascadeType.ALL)
+    private Department department;
+
+    @Transient
+    @OneToOne(cascade = CascadeType.ALL)
+    private Officers officers;
+
+    @Transient
+    @OneToOne(cascade = CascadeType.ALL)
+    private Ordinary ordinary;
+
+    @Transient
     private String militaryBaseName;
 
     @Transient
@@ -49,6 +61,30 @@ public class Soldier {
     public Soldier(String name, int age) {
         this.name = name;
         this.age = age;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public Officers getOfficers() {
+        return officers;
+    }
+
+    public void setOfficers(Officers officers) {
+        this.officers = officers;
+    }
+
+    public Ordinary getOrdinary() {
+        return ordinary;
+    }
+
+    public void setOrdinary(Ordinary ordinary) {
+        this.ordinary = ordinary;
     }
 
     public Soldier(String name, int age, MilitaryBase militaryBase) {

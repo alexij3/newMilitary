@@ -50,6 +50,7 @@ public class SoldierController {
 
     @RequestMapping("/delete")
     public void deleteSoldier(@RequestParam("id") int id){
+        System.out.println(id);
         soldierService.deleteSoldier(id);
     }
 

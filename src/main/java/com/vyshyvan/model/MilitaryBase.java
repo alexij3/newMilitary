@@ -35,7 +35,7 @@ public class MilitaryBase {
     @JoinColumn(name = "brigade_id")
     private Brigade brigade;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH, orphanRemoval = true)
     @JoinColumn(name = "captain_id")
     private Soldier captain;
 
@@ -47,6 +47,9 @@ public class MilitaryBase {
     @JsonIgnore
     private Set<WeaponryInMilitaryBase> weaponryInMilitaryBase = new HashSet<>();
 
+    @OneToMany(mappedBy = "militaryBase", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private Set<Squadron> squadrons = new HashSet<>();
 
     public MilitaryBase() {
     }
@@ -85,6 +88,14 @@ public class MilitaryBase {
         this.captain = captain;
         this.transportInMilitaryBase = transportInMilitaryBase;
         this.weaponryInMilitaryBase = weaponryInMilitaryBase;
+    }
+
+    public Set<Squadron> getSquadrons() {
+        return squadrons;
+    }
+
+    public void setSquadrons(Set<Squadron> squadrons) {
+        this.squadrons = squadrons;
     }
 
     public Integer getId() {
