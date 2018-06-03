@@ -13,7 +13,7 @@ app.controller("WeaponryInMbaseCtrl", function($scope, $http){
         $http.get('/api/militarybase/showall').then(function(response){
             bases = response.data;
             var select = document.getElementById('militaryBase');
-            var selectMbaseUpd = docu   ment.getElementById('updMilitaryBase');
+            var selectMbaseUpd = document.getElementById('updMilitaryBase');
             var queryBase = document.getElementById('selectBase');
 
             for (var i = 0; i < bases.length; i++) {
