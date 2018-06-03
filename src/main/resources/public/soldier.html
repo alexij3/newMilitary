@@ -20,7 +20,7 @@
                             <th>&#128273ІД</th>
                             <th>Ім'я</th>
                             <th>Вік</th>
-                            <!--<th>Військова частина</th> -->
+                            <th>Військова частина</th>
                             <th width="30px"><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal" style="align-self:center">Створити</button></th>
                         </tr>
                         </thead>
@@ -31,7 +31,7 @@
                             <td>{{item.id}}</td>
                             <td>{{item.name}}</td>
                             <td>{{item.age}}</td>
-                            <!--<td>{{item.militaryBase.name}}</td>-->
+                            <td>{{item.militaryBaseName}}</td>
                             <td>
                                 <button id="update" ng-click="soldierCtrl.startUpdateSoldier(item.id, item.name, item.age, item.militaryBase.id, item.specialty)" class="btn-warning" data-toggle="modal" data-target="#editModal">Редагувати</button>
                                 <button id="delete" ng-click="soldierCtrl.deleteSoldier(item.id)" class="btn-danger">Видалити</button>

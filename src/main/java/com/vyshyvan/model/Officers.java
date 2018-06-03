@@ -11,7 +11,7 @@ public class Officers implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToOne(cascade = CascadeType.MERGE)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "soldier_id", unique = true)
     @NotNull
     private Soldier soldier;
