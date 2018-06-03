@@ -2,7 +2,7 @@
     font-weight: 700;
     color: white;
     text-decoration: none;
-    padding: 4px 10px;
+    padding: 4px 7px;
     border-radius: 3px;
     background: rgb(64,199,129);
     box-shadow: 0 -3px rgb(53,167,110) inset;
@@ -21,17 +21,15 @@
 
 .btn-warning {
     width: 40px;
-    /* height: 25px; */
+    font-size: 24px;
     text-align: center;
 }
 
 .btn-danger {
     width: 40px;
-    /* height: 25px; */
-    font-size: 14px;
     padding-bottom: 2px;
-    padding-top: 5px;
     text-align: center;
+    font-size: 24px;
 }
 
 .panel-heading {
