@@ -33,8 +33,7 @@ public class Soldier {
     private Officers officers;
 
     @Transient
-    @Cascade(value = org.hibernate.annotations.CascadeType.DELETE)
-    @OneToOne
+    @OneToOne(orphanRemoval = true)
     private Ordinary ordinary;
 
     @Transient
