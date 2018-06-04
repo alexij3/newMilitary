@@ -39,7 +39,7 @@ public class MilitaryBaseServiceImpl implements MilitaryBaseService {
     }
 
     @Override
-    public List<MilitaryBase> findAllByArmyId(int id) {
+    public List<MilitaryBase> findAllByArmyId(Long id) {
         return militaryBaseDAO.findAllByArmyId(id);
     }
 

@@ -117,7 +117,7 @@ public class MilitaryBaseController {
     }
 
     @RequestMapping("/findAllByArmyId")
-    public List<MilitaryBase> findAllByArmyId(@RequestParam("id") int id){
+    public List<MilitaryBase> findAllByArmyId(@RequestParam("id") Long id){
         return militaryBaseService.findAllByArmyId(id);
     }
 

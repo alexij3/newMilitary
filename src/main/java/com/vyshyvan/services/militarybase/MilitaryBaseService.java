@@ -13,7 +13,7 @@ public interface MilitaryBaseService {
     MilitaryBase updateMilitaryBase(MilitaryBase militaryBase);
     void deleteMilitaryBase(int id);
     List<MilitaryBase> getAll();
-    List<MilitaryBase> findAllByArmyId(int id);
+    List<MilitaryBase> findAllByArmyId(Long id);
     List<MilitaryBase> findAllByDivisionId(int id);
     List<MilitaryBase> findAllByCorpsId(int id);
 }

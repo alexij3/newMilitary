@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 public interface MilitaryBaseDAO extends JpaRepository<MilitaryBase, Integer> {
-    List<MilitaryBase> findAllByArmyId(@Param("id") int id);
+    List<MilitaryBase> findAllByArmyId(@Param("id") Long id);
 
     @Query("SELECT a FROM MilitaryBase a WHERE a.division.id = :id")
     List<MilitaryBase> findAllByDivisionId(@Param("id") int id);
