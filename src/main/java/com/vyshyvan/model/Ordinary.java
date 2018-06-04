@@ -12,7 +12,7 @@ public class Ordinary implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "soldier_id", unique = true)
     @NotNull
     private Soldier soldier;
