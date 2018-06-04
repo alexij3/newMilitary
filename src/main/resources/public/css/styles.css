@@ -11,6 +11,12 @@
 }
 .btn-success:hover { background: rgb(92, 137, 167); }
 
+.btn-success.active.focus, .btn-success.active:focus {
+    color: #fff;
+    background-color: rgb(101, 161, 199);
+    border-color: rgb(87, 137, 167);
+}
+
 .btn-success:active {
     background: rgb(101, 161, 199);;
     box-shadow: 0 3px rgb(101, 161, 199) inset;

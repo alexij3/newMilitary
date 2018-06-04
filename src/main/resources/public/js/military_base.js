@@ -296,7 +296,7 @@ app.controller("MilitaryBaseCtrl", function($scope, $http){
                 console.log(response);
             });
 
-            window.location.reload();
+
         };
 
         this.del = function del(id){
