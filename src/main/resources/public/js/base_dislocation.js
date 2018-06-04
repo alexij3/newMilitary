@@ -51,6 +51,7 @@ app.controller("DislocationCtrl", function($scope, $http){
     });
 
     $http.get('/api/buildings/showall').then(function(response){
+        console.log(response);
         var buildings = [];
         buildings = response.data;
 
