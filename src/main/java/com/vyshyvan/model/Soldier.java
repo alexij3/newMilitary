@@ -2,6 +2,7 @@ package com.vyshyvan.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -32,7 +33,8 @@ public class Soldier {
     private Officers officers;
 
     @Transient
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @Cascade(value = org.hibernate.annotations.CascadeType.DELETE)
+    @OneToOne
     private Ordinary ordinary;
 
     @Transient
