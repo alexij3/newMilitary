@@ -28,7 +28,7 @@ public class Soldier {
     private Department department;
 
     @Transient
-    @OneToOne(cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.REMOVE)
     private Officers officers;
 
     @Transient
