@@ -1,5 +1,6 @@
 package com.vyshyvan.model;
 
+import org.hibernate.annotations.Cascade;
 import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;

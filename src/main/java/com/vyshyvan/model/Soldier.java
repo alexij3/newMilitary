@@ -32,7 +32,7 @@ public class Soldier {
     private Officers officers;
 
     @Transient
-    @OneToOne(cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Ordinary ordinary;
 
     @Transient
