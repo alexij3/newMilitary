@@ -35,7 +35,7 @@ public class MilitaryBase {
     @JoinColumn(name = "brigade_id")
     private Brigade brigade;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH, orphanRemoval = true)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
     @JoinColumn(name = "captain_id")
     private Soldier captain;
 
