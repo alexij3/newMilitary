@@ -24,15 +24,15 @@ public class Soldier {
     private MilitaryBase militaryBase;
 
     @Transient
-    @OneToOne(cascade = CascadeType.REFRESH, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.REFRESH)
     private Department department;
 
     @Transient
-    @OneToOne(cascade = CascadeType.REFRESH, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.REFRESH)
     private Officers officers;
 
     @Transient
-    @OneToOne(cascade = CascadeType.REFRESH, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.REFRESH)
     private Ordinary ordinary;
 
     @Transient
