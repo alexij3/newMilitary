@@ -3,6 +3,8 @@ package com.vyshyvan.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -33,7 +35,8 @@ public class Soldier {
     private Officers officers;
 
     @Transient
-    @OneToOne(orphanRemoval = true)
+    @OneToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Ordinary ordinary;
 
     @Transient
