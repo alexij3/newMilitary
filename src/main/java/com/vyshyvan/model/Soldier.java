@@ -18,21 +18,21 @@ public class Soldier {
     @Column
     private int age;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "military_base_id", nullable = true)
     @JsonIgnore
     private MilitaryBase militaryBase;
 
     @Transient
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.REFRESH, orphanRemoval = true)
     private Department department;
 
     @Transient
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.REFRESH, orphanRemoval = true)
     private Officers officers;
 
     @Transient
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.REFRESH, orphanRemoval = true)
     private Ordinary ordinary;
 
     @Transient
