@@ -13,7 +13,8 @@ app.controller("SoldierCtrl", function($scope, $http){
          console.log(response);
 
          $http.get('/api/militarybase/showall').then(function(response){
-             var militaryBases = response.data;
+             var militaryBases = [];
+             militaryBases = response.data;
              var select = document.getElementById('selectMilitaryBases');
              var selectMbaseUpd = document.getElementById('updateMilitaryBase');
 
