@@ -18,7 +18,7 @@ public class Soldier {
     @Column
     private int age;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @JoinColumn(name = "military_base_id", nullable = true)
     @JsonIgnore
     private MilitaryBase militaryBase;
