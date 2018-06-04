@@ -39,7 +39,7 @@ app.controller("SoldierCtrl", function($scope, $http){
 
     this.deleteSoldier = function deleteSoldier(id){
         var time = performance.now();
-        $http.get('/api/soldier/delete?id=' + id).then(function(){
+        $http.post('/api/soldier/delete?id=' + id).then(function(){
             time = performance.now() - time;
             window.alert("Видалення відбулося за " + time + " мс.");
             window.location.reload();
