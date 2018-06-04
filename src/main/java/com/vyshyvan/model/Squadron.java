@@ -9,7 +9,7 @@ import java.util.Set;
 @Entity
 public class Squadron {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "code_number")
