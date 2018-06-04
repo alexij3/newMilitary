@@ -62,7 +62,7 @@ app.controller("DislocationCtrl", function($scope, $http){
             option3.text = buildings[k].name;
             option3.value = buildings[k].id;
 
-            selectDislocation.add(option4);
+            selectDislocation.add(option3);
             console.log(selectDislocation);
         }
 
