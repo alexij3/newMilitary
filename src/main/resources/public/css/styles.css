@@ -4,15 +4,28 @@
     text-decoration: none;
     padding: 4px 7px;
     border-radius: 3px;
-    background: rgb(36, 199, 74);
-    box-shadow: 0 -3px rgb(53,167,110) inset;
+    background: rgb(101, 161, 199);
+    box-shadow: 0 -3px rgb(87, 137, 167) inset;
     transition: 0.2s;
+    border-color: rgb(87, 137, 167);
 }
-.btn-success:hover { background: rgb(53, 167, 110); }
+.btn-success:hover { background: rgb(92, 137, 167); }
 
 .btn-success:active {
-    background: rgb(33,147,90);
-    box-shadow: 0 3px rgb(33,147,90) inset;
+    background: rgb(101, 161, 199);;
+    box-shadow: 0 3px rgb(101, 161, 199) inset;
+}
+
+.btn-success:focus{
+    background: rgb(101, 161, 199);
+}
+
+.btn-success:checked{
+    background: rgb(101, 161, 199);
+}
+
+.btn-success:target{
+    background: rgb(101, 161, 199);
 }
 
 .row {
