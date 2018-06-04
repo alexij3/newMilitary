@@ -95,7 +95,9 @@ public class Soldier {
     }
 
     public long getMilitaryBaseId() {
-        return militaryBase.getId();
+        if (militaryBase != null)
+            return militaryBase.getId();
+        return 0;
     }
 
     public void setMilitaryBaseId(long militaryBaseId) {
@@ -144,10 +146,13 @@ public class Soldier {
     }
 
     public String getMilitaryBaseName() {
+        if (militaryBase != null)
         return militaryBase.getName();
+        return "";
     }
 
     public void setMilitaryBaseName(String militaryBaseName) {
+
         this.militaryBaseName = militaryBaseName;
     }
 }
