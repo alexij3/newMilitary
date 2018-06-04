@@ -25,7 +25,6 @@ public class Department {
 
     @OneToOne
     @JoinColumn(name = "captain_id")
-    @NotNull
     private Soldier captain;
 
     public Department() {

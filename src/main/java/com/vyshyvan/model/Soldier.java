@@ -28,11 +28,11 @@ public class Soldier {
     private Department department;
 
     @Transient
-    @OneToOne(cascade = CascadeType.REFRESH)
+    @OneToOne(cascade = CascadeType.REMOVE, orphanRemoval = true)
     private Officers officers;
 
     @Transient
-    @OneToOne(cascade = CascadeType.REFRESH)
+    @OneToOne(cascade = CascadeType.REMOVE, orphanRemoval = true)
     private Ordinary ordinary;
 
     @Transient
