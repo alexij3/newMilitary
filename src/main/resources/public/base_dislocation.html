@@ -41,7 +41,7 @@
                             <td>{{item.dislocation.name}}</td>
                             <td>
                                 <button id="update" ng-click="dislocationCtrl.startUpdate(item.id, item.militaryBase.id, item.dislocation.id)" class="btn-warning" data-toggle="modal" data-target="#editModal">✎</button>
-                                <button id="delete" ng-click="dislocationCtrl.delete(item.id)" class="btn-danger">✘</button>
+                                <button id="delete" ng-click="dislocationCtrl.del(item.id)" class="btn-danger">✘</button>
                             </td>
                         </tr>
                         </tbody>
