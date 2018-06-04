@@ -281,7 +281,7 @@ app.controller("MilitaryBaseCtrl", function($scope, $http){
             if (captainId == "") captainId = 0;
 
             var request = {
-                method: 'PUT',
+                method: 'GET',
                 url: '/api/militarybase/update?id=' + idToUpdate + '&armyId=' + armyId + '&divisionId=' + divisionId + '&corpsId=' + corpsId
                 + '&brigadeId=' + brigadeId + '&captainId=' + captainId,
                 data : {
