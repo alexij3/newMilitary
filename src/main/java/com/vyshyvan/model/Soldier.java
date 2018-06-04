@@ -36,7 +36,6 @@ public class Soldier {
 
     @Transient
     @OneToOne
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private Ordinary ordinary;
 
     @Transient

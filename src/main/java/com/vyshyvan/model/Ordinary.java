@@ -1,6 +1,8 @@
 package com.vyshyvan.model;
 
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
@@ -15,6 +17,7 @@ public class Ordinary implements Serializable{
 
     @OneToOne
     @JoinColumn(name = "soldier_id", unique = true)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @NotNull
     private Soldier soldier;
 
